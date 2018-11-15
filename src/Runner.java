@@ -1,8 +1,8 @@
 public class Runner {
     public static void main(String[] args) {
-        int[] arr = {2,3,6,1,5,4};
+        int[] arr = Main.getRandIntArr(25);
         Main.printArr(arr);
-        Main.selectionSort(arr);
+        Main.insertionSort(arr);
         Main.printArr(arr);
     }
 }
