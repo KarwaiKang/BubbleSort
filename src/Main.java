@@ -25,12 +25,17 @@ public class Main {
     }
 
     public static void bubbleSort(int[] arr) {
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = i + 1; j < arr.length; j++) {
-                if (arr[i] > arr[j])
-                    swap(arr, i, j);
+        boolean swap = true;
+        while (swap) {
+            swap = false;
+            for (int i = 0; i < arr.length; i++) {
+                if (i != arr.length - 1 && arr[i] > arr[i + 1]) {
+                    swap(arr, i, i + 1);
+                    swap = true;
+                }
             }
         }
+
     }
 
     public static void selectionSort(int[] arr) {
