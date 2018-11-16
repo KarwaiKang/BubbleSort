@@ -1,21 +1,21 @@
 public class Runner {
     public static void main(String[] args) {
-        System.out.println("Bubble Sort:");
-        int[] arr = Main.getRandIntArr(25);
-        Main.printArr(arr);
-        Main.bubbleSort(arr);
-        Main.printArr(arr);
+        int len = 10000;
+        System.out.println("Size: " + len);
 
-        System.out.println("Selection Sort:");
-        arr = Main.getRandIntArr(25);
-        Main.printArr(arr);
-        Main.selectionSort(arr);
-        Main.printArr(arr);
+        int[] arr = Main.getRandIntArr(len);
+        System.out.println(Main.printArr(arr).substring(0,100) + "...");
 
-        System.out.println("Insertion Sort:");
-        arr = Main.getRandIntArr(25);
-        Main.printArr(arr);
-        Main.insertionSort(arr);
-        Main.printArr(arr);
+        int[] clone = arr.clone();
+        Main.bubbleSort(clone);
+        System.out.println(Main.printArr(clone).substring(0,100) + "...");
+
+        clone = arr.clone();
+        Main.selectionSort(clone);
+        System.out.println(Main.printArr(clone).substring(0,100) + "...");
+
+        clone = arr.clone();
+        Main.insertionSort(clone);
+        System.out.println(Main.printArr(clone).substring(0,100) + "...");
     }
 }
