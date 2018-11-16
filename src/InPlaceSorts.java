@@ -24,7 +24,7 @@ public class InPlaceSorts {
     }
 
     /**
-     * Prints out the values of an array of integers, delimited by a comma.
+     * Prints out the values of an array, delimited by a comma.
      * @param arr The array to print.
      */
     public static String printArr(int[] arr) {
@@ -57,33 +57,40 @@ public class InPlaceSorts {
         int[] arr = new int[len];
         for (int i = 1; i <= len; i++) {
             int randIdx = (int)(Math.random() * len);
-            while (arr[randIdx] != 0) {
+            while (arr[randIdx] != 0)
                 randIdx = (int)(Math.random() * len);
-            }
             arr[randIdx] = i;
         }
         return arr;
     }
 
+    /**
+     * Creates an array of doubles from 1.0 to len in random order.
+     * @param len The length of the array.
+     * @return Array of randomly sorted doubles.
+     */
     public static double[] getRandDoubleArr(int len) {
         double[] arr = new double[len];
         for (int i = 1; i <= len; i++) {
             int randIdx = (int)(Math.random() * len);
-            while (arr[randIdx] != 0) {
+            while (arr[randIdx] != 0)
                 randIdx = (int)(Math.random() * len);
-            }
             arr[randIdx] = i;
         }
         return arr;
     }
 
+    /**
+     * Creates an array of String from "1" to len in random order.
+     * @param len The length of the array.
+     * @return Array of randomly sorted Strings.
+     */
     public static String[] getRandStringArr(int len) {
         String[] arr = new String[len];
         for (int i = 1; i <= len; i++) {
             int randIdx = (int)(Math.random() * len);
-            while (arr[randIdx] != null) {
+            while (arr[randIdx] != null)
                 randIdx = (int)(Math.random() * len);
-            }
             arr[randIdx] = Integer.toString(i);
         }
         return arr;
@@ -97,21 +104,20 @@ public class InPlaceSorts {
     public static void bubbleSort(String[] list1) {
         long time = System.currentTimeMillis();
         System.out.print("Performing bubble sort... ");
+        int swaps = 0, comparisons = 0;
         boolean swap = true;
-        int swaps = 0;
-        int comparisons = 0;
         for (int i = 0; swap; i++) {
             swap = false;
             for (int j = 0; j < list1.length - i - 1; j++) {
                 comparisons++;
-                if (Integer.parseInt(list1[j])> Integer.parseInt(list1[j + 1])) {
+                if (list1[j].compareTo(list1[j + 1]) > 0) {
                     swap(list1, j, j + 1);
                     swap = true;
                     swaps++;
                 }
             }
         }
-        System.out.println("Done in " + (System.currentTimeMillis() - time) + "ms. (parseInt takes time?)\nSwaps: " + swaps + " | Comparisons: " + comparisons);
+        System.out.println("Done in " + (System.currentTimeMillis() - time) + "ms. \nSwaps: " + swaps + " | Comparisons: " + comparisons);
     }
 
     /**
@@ -122,15 +128,13 @@ public class InPlaceSorts {
     public static void selectionSort(double[] list1) {
         long time = System.currentTimeMillis();
         System.out.print("Performing selection sort... ");
+        int swaps = 0, comparisons = 0;
         int minIdx = 0;
-        int swaps = 0;
-        int comparisons = 0;
         for (int i = 0; i < list1.length - 1; i++) {
             for (int j = i; j < list1.length; j++) {
                 comparisons++;
-                if (list1[j] < list1[minIdx]) {
+                if (list1[j] < list1[minIdx])
                     minIdx = j;
-                }
             }
             swap(list1, minIdx, i);
             swaps++;
@@ -148,8 +152,7 @@ public class InPlaceSorts {
     public static void insertionSort(int[] list1) {
         long time = System.currentTimeMillis();
         System.out.print("Performing insertion sort... ");
-        int swaps = 0;
-        int comparisons = 0;
+        int swaps = 0, comparisons = 0;
         for (int i = 1; i < list1.length; i++) {
             comparisons++;
             for (int j = i - 1; j > 0 && list1[j] < list1[j - 1]; j--) {
