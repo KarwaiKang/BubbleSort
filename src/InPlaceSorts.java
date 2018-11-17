@@ -1,4 +1,4 @@
-public class InPlaceSorts {
+class InPlaceSorts {
     /**
      * Swaps the values of an array arr at indexes i and j.
      * @param arr The array to modify.
@@ -27,21 +27,21 @@ public class InPlaceSorts {
      * Prints out the values of an array, delimited by a comma.
      * @param arr The array to print.
      */
-    public static String printArr(int[] arr) {
+    static String printArr(int[] arr) {
         String out = "";
         for (int i : arr)
             out += ", " + i;
         return out.substring(2);
     }
 
-    public static String printArr(double[] arr) {
+    static String printArr(double[] arr) {
         String out = "";
         for (double i : arr)
             out += ", " + i;
         return out.substring(2);
     }
 
-    public static String printArr(String[] arr) {
+    static String printArr(String[] arr) {
         String out = "";
         for (String i : arr)
             out += ", " + i;
@@ -53,7 +53,7 @@ public class InPlaceSorts {
      * @param len The length of the array.
      * @return Array of randomly sorted integers.
      */
-    public static int[] getRandIntArr(int len) {
+    static int[] getRandIntArr(int len) {
         int[] arr = new int[len];
         for (int i = 1; i <= len; i++) {
             int randIdx = (int)(Math.random() * len);
@@ -69,7 +69,7 @@ public class InPlaceSorts {
      * @param len The length of the array.
      * @return Array of randomly sorted doubles.
      */
-    public static double[] getRandDoubleArr(int len) {
+    static double[] getRandDoubleArr(int len) {
         double[] arr = new double[len];
         for (int i = 1; i <= len; i++) {
             int randIdx = (int)(Math.random() * len);
@@ -85,7 +85,7 @@ public class InPlaceSorts {
      * @param len The length of the array.
      * @return Array of randomly sorted Strings.
      */
-    public static String[] getRandStringArr(int len) {
+    static String[] getRandStringArr(int len) {
         String[] arr = new String[len];
         for (int i = 1; i <= len; i++) {
             int randIdx = (int)(Math.random() * len);
@@ -101,7 +101,7 @@ public class InPlaceSorts {
      * We continue iterating until no swaps are required. Then the array is sorted!
      * @param list1 The array to sort.
      */
-    public static void bubbleSort(String[] list1) {
+    static void bubbleSort(String[] list1) {
         long time = System.currentTimeMillis();
         System.out.print("Performing bubble sort... ");
         int swaps = 0, comparisons = 0;
@@ -125,7 +125,7 @@ public class InPlaceSorts {
      * Then searches the rest of the array for the next element, and repeats.
      * @param list1 The array to sort.
      */
-    public static void selectionSort(double[] list1) {
+    static void selectionSort(double[] list1) {
         long time = System.currentTimeMillis();
         System.out.print("Performing selection sort... ");
         int swaps = 0, comparisons = 0;
@@ -149,7 +149,7 @@ public class InPlaceSorts {
      * We need to keep track of where we are inserting elements as we sort.
      * @param list1 The array to sort.
      */
-    public static void insertionSort(int[] list1) {
+    static void insertionSort(int[] list1) {
         long time = System.currentTimeMillis();
         System.out.print("Performing insertion sort... ");
         int swaps = 0, comparisons = 0;
