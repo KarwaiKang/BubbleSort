@@ -81,7 +81,7 @@ class InPlaceSorts {
     }
 
     /**
-     * Creates an array of String from "1" to len in random order.
+     * Creates an array of Strings from "1" to len in random order.
      * @param len The length of the array.
      * @return Array of randomly sorted Strings.
      */
@@ -92,6 +92,40 @@ class InPlaceSorts {
             while (arr[randIdx] != null)
                 randIdx = (int)(Math.random() * len);
             arr[randIdx] = Integer.toString(i);
+        }
+        return arr;
+    }
+
+    /**
+     * Creates an array of Strings with random lowercase letters.
+     * @param num The length of the array.
+     * @param len The length of each String.
+     * @return An array of num Strings, each of length len, composed of random lowercase letters.
+     */
+    static String[] randStringArr(int num, int len) {
+        String[] arr = new String[num];
+        for (int i = 0; i < num; i++) {
+            String str = "";
+            for (int j = 0; j < len; j++)
+                str += Character.toString((char)((Math.random() * 26) + 97));
+            arr[i] = str;
+        }
+        return arr;
+    }
+
+    /**
+     * Creates an array of Strings with random lowercase letters.
+     * @param num The length of the array.
+     * @return An array of num Strings, each of a length from 3 to 15, composed of random lowercase letters.
+     */
+    static String[] randStringArr(int num) {
+        String[] arr = new String[num];
+        for (int i = 0; i < num; i++) {
+            String str = "";
+            int len = (int)(Math.random() * 13) + 3;
+            for (int j = 0; j < len; j++)
+                str += Character.toString((char)((Math.random() * 26) + 97));
+            arr[i] = str;
         }
         return arr;
     }
