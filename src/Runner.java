@@ -4,23 +4,44 @@ public class Runner {
         System.out.println("Common array size: " + len + "\n");
 
         int[] intArr = InPlaceSorts.getRandIntArr(len);
-        System.out.println("Random int array: " + InPlaceSorts.printArr(intArr).substring(0,200) + "...");
+        System.out.println("Random int array:");
+        System.out.println(abbreviate(InPlaceSorts.printArr(intArr)));
         InPlaceSorts.insertionSort(intArr);
-        System.out.println("Sorted int array: " + InPlaceSorts.printArr(intArr).substring(0,200) + "...\n");
+        System.out.println("Sorted:");
+        System.out.println(abbreviate(InPlaceSorts.printArr(intArr)));
 
         double[] doubleArr = InPlaceSorts.getRandDoubleArr(len);
-        System.out.println("Random double array: " + InPlaceSorts.printArr(doubleArr).substring(0,200) + "...");
+        System.out.println("Random double array:");
+        System.out.println(abbreviate(InPlaceSorts.printArr(doubleArr)));
         InPlaceSorts.selectionSort(doubleArr);
-        System.out.println("Sorted double array: " + InPlaceSorts.printArr(doubleArr).substring(0,200) + "...\n");
+        System.out.println("Sorted:");
+        System.out.println(abbreviate(InPlaceSorts.printArr(doubleArr)));
 
-        String[] stringArr = InPlaceSorts.randStringArr(len);
-        System.out.println("Random String array: " + InPlaceSorts.printArr(stringArr).substring(0,200) + "...");
+        String[] stringArr = InPlaceSorts.getRandStringArr(len);
+        System.out.println("Random String array:");
+        System.out.println(abbreviate(InPlaceSorts.printArr(stringArr)));
         InPlaceSorts.bubbleSort(stringArr);
-        System.out.println("Sorted String array: " + InPlaceSorts.printArr(stringArr).substring(0,200) + "...\n");
+        System.out.println("Sorted:");
+        System.out.println(abbreviate(InPlaceSorts.printArr(stringArr)));
+
+        stringArr = InPlaceSorts.getRandStringArr(len, 1, 1);
+        System.out.println("Random String array:");
+        System.out.println(abbreviate(InPlaceSorts.printArr(stringArr)));
+        InPlaceSorts.bubbleSort(stringArr);
+        System.out.println("Sorted:");
+        System.out.println(abbreviate(InPlaceSorts.printArr(stringArr)));
 
         intArr = InPlaceSorts.getRandIntArr(len);
-        System.out.println("Random int array: " + InPlaceSorts.printArr(intArr).substring(0,200) + "...");
+        System.out.println("Random int array:");
+        System.out.println(abbreviate(InPlaceSorts.printArr(intArr)));
         InPlaceSorts.mergeSort(intArr);
-        System.out.println("Sorted int array: " + InPlaceSorts.printArr(intArr).substring(0,200) + "...\n");
+        System.out.println("Sorted:");
+        System.out.println(abbreviate(InPlaceSorts.printArr(intArr)));
+    }
+
+    private static String abbreviate(String str) {
+        if (str.length() < 150)
+            return str;
+        return str.substring(0, 150) + "...";
     }
 }

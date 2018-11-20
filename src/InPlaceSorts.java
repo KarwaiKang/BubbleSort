@@ -2,9 +2,9 @@ class InPlaceSorts {
     /**
      * Swaps the values of an array arr at indexes i and j.
      *
-     * @param arr The array to modify.
-     * @param i   The index of the value to be moved to index j.
-     * @param j   The index of the value to be moved to index i.
+     * @param arr the array to modify.
+     * @param i   the index of the value to be moved to index j.
+     * @param j   the index of the value to be moved to index i.
      */
     private static void swap(int[] arr, int i, int j) {
         int temp = arr[i];
@@ -31,30 +31,33 @@ class InPlaceSorts {
      */
     static String printArr(int[] arr) {
         String out = "";
+        StringBuilder sb = new StringBuilder(out);
         for (int i : arr)
-            out += ", " + i;
-        return out.substring(2);
+            sb.append(", ").append(i);
+        return sb.substring(2);
     }
 
     static String printArr(double[] arr) {
         String out = "";
-        for (double i : arr)
-            out += ", " + i;
-        return out.substring(2);
+        StringBuilder sb = new StringBuilder(out);
+        for (double d : arr)
+            sb.append(", ").append(d);
+        return sb.substring(2);
     }
 
     static String printArr(String[] arr) {
         String out = "";
-        for (String i : arr)
-            out += ", " + i;
-        return out.substring(2);
+        StringBuilder sb = new StringBuilder(out);
+        for (String s : arr)
+            sb.append(", ").append(s);
+        return sb.substring(2);
     }
 
     /**
      * Creates an array of integers from 1 to len in random order.
      *
-     * @param len The length of the array.
-     * @return Array of randomly sorted integers.
+     * @param len the length of the array.
+     * @return an array of randomly sorted integers.
      */
     static int[] getRandIntArr(int len) {
         int[] arr = new int[len];
@@ -70,8 +73,8 @@ class InPlaceSorts {
     /**
      * Creates an array of doubles from 1.0 to len in random order.
      *
-     * @param len The length of the array.
-     * @return Array of randomly sorted doubles.
+     * @param len the length of the array.
+     * @return an array of randomly sorted doubles.
      */
     static double[] getRandDoubleArr(int len) {
         double[] arr = new double[len];
@@ -85,56 +88,29 @@ class InPlaceSorts {
     }
 
     /**
-     * Creates an array of Strings from "1" to len in random order.
+     * Creates an array of Strings with random lowercase letters.
      *
-     * @param len The length of the array.
-     * @return Array of randomly sorted Strings.
+     * @param num the length of the array.
+     * @param min the minimum possible length of each String. (3 by default)
+     * @param max the maximum possible length of each String. (5 by default)
+     * @return    an array of {@code num} Strings,
+     *            each of a length from {@code min} to {@code max},
+     *            composed of random lowercase letters.
      */
-    static String[] getRandStringArr(int len) {
-        String[] arr = new String[len];
-        for (int i = 1; i <= len; i++) {
-            int randIdx = (int) (Math.random() * len);
-            while (arr[randIdx] != null)
-                randIdx = (int) (Math.random() * len);
-            arr[randIdx] = Integer.toString(i);
+    static String[] getRandStringArr(int num, int min, int max) {
+        String[] arr = new String[num];
+        for (int i = 0; i < num; i++) {
+            StringBuilder sb = new StringBuilder();
+            int len = (int) (Math.random() * max + 1 - min) + min;
+            for (int j = 0; j < len; j++)
+                sb.append(Character.toString((char) ((Math.random() * 26) + 97)));
+            arr[i] = sb.toString();
         }
         return arr;
     }
 
-    /**
-     * Creates an array of Strings with random lowercase letters.
-     *
-     * @param num The length of the array.
-     * @param len The length of each String.
-     * @return An array of num Strings, each of length len, composed of random lowercase letters.
-     */
-    static String[] randStringArr(int num, int len) {
-        String[] arr = new String[num];
-        for (int i = 0; i < num; i++) {
-            String str = "";
-            for (int j = 0; j < len; j++)
-                str += Character.toString((char) ((Math.random() * 26) + 97));
-            arr[i] = str;
-        }
-        return arr;
-    }
-
-    /**
-     * Creates an array of Strings with random lowercase letters.
-     *
-     * @param num The length of the array.
-     * @return An array of num Strings, each of a length from 3 to 15, composed of random lowercase letters.
-     */
-    static String[] randStringArr(int num) {
-        String[] arr = new String[num];
-        for (int i = 0; i < num; i++) {
-            String str = "";
-            int len = (int) (Math.random() * 13) + 3;
-            for (int j = 0; j < len; j++)
-                str += Character.toString((char) ((Math.random() * 26) + 97));
-            arr[i] = str;
-        }
-        return arr;
+    static String[] getRandStringArr(int num) {
+        return getRandStringArr(num, 3, 15);
     }
 
     /**
@@ -159,7 +135,8 @@ class InPlaceSorts {
                 }
             }
         }
-        System.out.println("Done in " + (System.currentTimeMillis() - time) + "ms. \nSwaps: " + swaps + " | Comparisons: " + comparisons);
+        System.out.println("Done in " + (System.currentTimeMillis() - time) + "ms." +
+                " (" + swaps + " swaps, " + comparisons + " comparisons)");
     }
 
     /**
@@ -183,7 +160,8 @@ class InPlaceSorts {
             swaps++;
 
         }
-        System.out.println("Done in " + (System.currentTimeMillis() - time) + "ms.\nSwaps: " + swaps + " | Comparisons: " + comparisons);
+        System.out.println("Done in " + (System.currentTimeMillis() - time) + "ms." +
+                " (" + swaps + " swaps, " + comparisons + " comparisons)");
     }
 
     /**
@@ -205,7 +183,8 @@ class InPlaceSorts {
                 swap(list1, j, j - 1);
             }
         }
-        System.out.println("Done in " + (System.currentTimeMillis() - time) + "ms.\nSwaps: " + swaps + " | Comparisons: " + comparisons);
+        System.out.println("Done in " + (System.currentTimeMillis() - time) + "ms." +
+                " (" + swaps + " swaps, " + comparisons + " comparisons)");
     }
 
     /**
