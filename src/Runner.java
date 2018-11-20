@@ -16,6 +16,11 @@ public class Runner {
         String[] stringArr = InPlaceSorts.randStringArr(len);
         System.out.println("Random String array: " + InPlaceSorts.printArr(stringArr).substring(0,200) + "...");
         InPlaceSorts.bubbleSort(stringArr);
-        System.out.println("Sorted String array: " + InPlaceSorts.printArr(stringArr).substring(0,200) + "...");
+        System.out.println("Sorted String array: " + InPlaceSorts.printArr(stringArr).substring(0,200) + "...\n");
+
+        intArr = InPlaceSorts.getRandIntArr(len);
+        System.out.println("Random int array: " + InPlaceSorts.printArr(intArr).substring(0,200) + "...");
+        InPlaceSorts.mergeSort(intArr);
+        System.out.println("Sorted int array: " + InPlaceSorts.printArr(intArr).substring(0,200) + "...\n");
     }
 }
