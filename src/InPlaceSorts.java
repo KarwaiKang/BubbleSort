@@ -33,24 +33,24 @@ class InPlaceSorts {
         String out = "";
         StringBuilder sb = new StringBuilder(out);
         for (int i : arr)
-            sb.append(", ").append(i);
-        return sb.substring(2);
+            sb.append(" ").append(i);
+        return sb.substring(1);
     }
 
     static String printArr(double[] arr) {
         String out = "";
         StringBuilder sb = new StringBuilder(out);
         for (double d : arr)
-            sb.append(", ").append(d);
-        return sb.substring(2);
+            sb.append(" ").append(d);
+        return sb.substring(1);
     }
 
     static String printArr(String[] arr) {
         String out = "";
         StringBuilder sb = new StringBuilder(out);
         for (String s : arr)
-            sb.append(", ").append(s);
-        return sb.substring(2);
+            sb.append(" ").append(s);
+        return sb.substring(1);
     }
 
     /**
@@ -120,8 +120,6 @@ class InPlaceSorts {
      * @param list1 The array to sort.
      */
     static void bubbleSort(String[] list1) {
-        long time = System.currentTimeMillis();
-        System.out.print("Performing bubble sort... ");
         int swaps = 0, comparisons = 0;
         boolean swap = true;
         for (int i = 0; swap; i++) {
@@ -135,8 +133,7 @@ class InPlaceSorts {
                 }
             }
         }
-        System.out.println("Done in " + (System.currentTimeMillis() - time) + "ms." +
-                " (" + swaps + " swaps, " + comparisons + " comparisons)");
+        System.out.print("(" + swaps + " swaps, " + comparisons + " comparisons) ");
     }
 
     /**
@@ -146,8 +143,6 @@ class InPlaceSorts {
      * @param list1 The array to sort.
      */
     static void selectionSort(double[] list1) {
-        long time = System.currentTimeMillis();
-        System.out.print("Performing selection sort... ");
         int swaps = 0, comparisons = 0;
         int minIdx = 0;
         for (int i = 0; i < list1.length - 1; i++) {
@@ -160,8 +155,7 @@ class InPlaceSorts {
             swaps++;
 
         }
-        System.out.println("Done in " + (System.currentTimeMillis() - time) + "ms." +
-                " (" + swaps + " swaps, " + comparisons + " comparisons)");
+        System.out.print("(" + swaps + " swaps, " + comparisons + " comparisons) ");
     }
 
     /**
@@ -172,8 +166,6 @@ class InPlaceSorts {
      * @param list1 The array to sort.
      */
     static void insertionSort(int[] list1) {
-        long time = System.currentTimeMillis();
-        System.out.print("Performing insertion sort... ");
         int swaps = 0, comparisons = 0;
         for (int i = 1; i < list1.length; i++) {
             comparisons++;
@@ -183,8 +175,7 @@ class InPlaceSorts {
                 swap(list1, j, j - 1);
             }
         }
-        System.out.println("Done in " + (System.currentTimeMillis() - time) + "ms." +
-                " (" + swaps + " swaps, " + comparisons + " comparisons)");
+        System.out.print("(" + swaps + " swaps, " + comparisons + " comparisons) ");
     }
 
     /**
@@ -274,5 +265,31 @@ class InPlaceSorts {
         for (k = from; k <= to; k++) { // Overwrites the original array
             elements[k] = temp[k];
         }
+    }
+
+    static void quickSort(int[] arr) {
+        quickSort(arr, 0, arr.length - 1);
+    }
+
+    static void quickSort(int[] arr, int left, int right) {
+        if (left < right) {
+            int pivot = partition(arr, left, right);
+
+            quickSort(arr, left, pivot - 1);
+            quickSort(arr, pivot + 1, right);
+        }
+    }
+
+    private static int partition(int[] arr, int left, int right) {
+        int pivot = arr[right];
+        int i = left - 1;
+        for (int j = left; j < right; j++) {
+            if (arr[j] <= pivot) {
+                i++;
+                swap(arr, i, j);
+            }
+        }
+        swap(arr, i + 1, right);
+        return i + 1;
     }
 }

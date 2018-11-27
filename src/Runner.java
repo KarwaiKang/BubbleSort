@@ -4,44 +4,58 @@ public class Runner {
         System.out.println("Common array size: " + len + "\n");
 
         int[] intArr = InPlaceSorts.getRandIntArr(len);
-        System.out.println("Random int array:");
-        System.out.println(abbreviate(InPlaceSorts.printArr(intArr)));
+        System.out.println(abbrev(InPlaceSorts.printArr(intArr)));
+        long time = System.currentTimeMillis();
+        System.out.print("Insertion sorting... ");
         InPlaceSorts.insertionSort(intArr);
-        System.out.println("Sorted:");
-        System.out.println(abbreviate(InPlaceSorts.printArr(intArr)));
+        System.out.println("Done in " + (System.currentTimeMillis() - time) + "ms.");
+        System.out.println(abbrev(InPlaceSorts.printArr(intArr)) + "\n");
 
         double[] doubleArr = InPlaceSorts.getRandDoubleArr(len);
-        System.out.println("Random double array:");
-        System.out.println(abbreviate(InPlaceSorts.printArr(doubleArr)));
+        System.out.println(abbrev(InPlaceSorts.printArr(doubleArr)));
+        time = System.currentTimeMillis();
+        System.out.print("Selection sorting... ");
         InPlaceSorts.selectionSort(doubleArr);
-        System.out.println("Sorted:");
-        System.out.println(abbreviate(InPlaceSorts.printArr(doubleArr)));
+        System.out.println("Done in " + (System.currentTimeMillis() - time) + "ms.");
+        System.out.println(abbrev(InPlaceSorts.printArr(doubleArr)) + "\n");
 
-        String[] stringArr = InPlaceSorts.getRandStringArr(len);
-        System.out.println("Random String array:");
-        System.out.println(abbreviate(InPlaceSorts.printArr(stringArr)));
-        InPlaceSorts.bubbleSort(stringArr);
-        System.out.println("Sorted:");
-        System.out.println(abbreviate(InPlaceSorts.printArr(stringArr)));
+        String[] strArr = InPlaceSorts.getRandStringArr(len);
+        System.out.println(abbrev(InPlaceSorts.printArr(strArr)));
+        time = System.currentTimeMillis();
+        System.out.print("Bubble sorting... ");
+        InPlaceSorts.bubbleSort(strArr);
+        System.out.println("Done in " + (System.currentTimeMillis() - time) + "ms.");
+        System.out.println(abbrev(InPlaceSorts.printArr(strArr)) + "\n");
 
-        stringArr = InPlaceSorts.getRandStringArr(len, 1, 1);
-        System.out.println("Random String array:");
-        System.out.println(abbreviate(InPlaceSorts.printArr(stringArr)));
-        InPlaceSorts.bubbleSort(stringArr);
-        System.out.println("Sorted:");
-        System.out.println(abbreviate(InPlaceSorts.printArr(stringArr)));
+        strArr = InPlaceSorts.getRandStringArr(len, 1, 1);
+        System.out.println(abbrev(InPlaceSorts.printArr(strArr)));
+        time = System.currentTimeMillis();
+        System.out.print("Bubble sorting... ");
+        InPlaceSorts.bubbleSort(strArr);
+        System.out.println("Done in " + (System.currentTimeMillis() - time) + "ms.");
+        System.out.println(abbrev(InPlaceSorts.printArr(strArr)) + "\n");
 
         intArr = InPlaceSorts.getRandIntArr(len);
-        System.out.println("Random int array:");
-        System.out.println(abbreviate(InPlaceSorts.printArr(intArr)));
+        System.out.println(abbrev(InPlaceSorts.printArr(intArr)));
+        time = System.currentTimeMillis();
+        System.out.print("Merge sorting... ");
         InPlaceSorts.mergeSort(intArr);
-        System.out.println("Sorted:");
-        System.out.println(abbreviate(InPlaceSorts.printArr(intArr)));
+        System.out.println("Done in " + (System.currentTimeMillis() - time) + "ms.");
+        System.out.println(abbrev(InPlaceSorts.printArr(intArr)) + "\n");
+
+        intArr = InPlaceSorts.getRandIntArr(len);
+        System.out.println(abbrev(InPlaceSorts.printArr(intArr)));
+        time = System.currentTimeMillis();
+        System.out.print("Quick sorting... ");
+        InPlaceSorts.quickSort(intArr);
+        System.out.println("Done in " + (System.currentTimeMillis() - time) + "ms.");
+        System.out.println(abbrev(InPlaceSorts.printArr(intArr)) + "\n");
     }
 
-    private static String abbreviate(String str) {
-        if (str.length() < 150)
+    private static String abbrev(String str) {
+        int cutoff = 100;
+        if (str.length() < cutoff)
             return str;
-        return str.substring(0, 150) + "...";
+        return str.substring(0, cutoff) + "...";
     }
 }
