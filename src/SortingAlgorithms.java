@@ -1,4 +1,4 @@
-class InPlaceSorts {
+class SortingAlgorithms {
     /**
      * Swaps the values of an array arr at indexes i and j.
      *
@@ -25,9 +25,9 @@ class InPlaceSorts {
     }
 
     /**
-     * Prints out the values of an array, delimited by a comma.
+     * Prints out the values of an array, delimited by a space.
      *
-     * @param arr The array to print.
+     * @param arr the array to print.
      */
     static String printArr(int[] arr) {
         String out = "";
@@ -54,10 +54,27 @@ class InPlaceSorts {
     }
 
     /**
-     * Creates an array of integers from 1 to len in random order.
+     * Creates an array of {@code len} random integers
+     * in the range [{@code min}, {@code max}].
      *
      * @param len the length of the array.
+     * @param min the minimum integer value.
+     * @param max the max integer value.
      * @return an array of randomly sorted integers.
+     */
+    static int[] getRandIntArr(int len, int min, int max) {
+        int[] arr = new int[len];
+        for (int i = 0; i < len; i++) {
+            arr[i] = min + (int) (Math.random() * (max - min + 1));
+        }
+        return arr;
+    }
+
+    /**
+     * Creates an array of integers from 1 to {@code len} in random order.
+     *
+     * @param len the length of the array.
+     * @return an array of randomly sorted integers with no repeat values.
      */
     static int[] getRandIntArr(int len) {
         int[] arr = new int[len];
@@ -71,7 +88,7 @@ class InPlaceSorts {
     }
 
     /**
-     * Creates an array of doubles from 1.0 to len in random order.
+     * Creates an array of doubles from 1.0 to {@code len} in random order.
      *
      * @param len the length of the array.
      * @return an array of randomly sorted doubles.
@@ -93,9 +110,9 @@ class InPlaceSorts {
      * @param num the length of the array.
      * @param min the minimum possible length of each String. (3 by default)
      * @param max the maximum possible length of each String. (5 by default)
-     * @return    an array of {@code num} Strings,
-     *            each of a length from {@code min} to {@code max},
-     *            composed of random lowercase letters.
+     * @return an array of {@code num} Strings,
+     * each of a length from {@code min} to {@code max},
+     * composed of random lowercase letters.
      */
     static String[] getRandStringArr(int num, int min, int max) {
         String[] arr = new String[num];
